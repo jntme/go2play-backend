@@ -14,15 +14,15 @@
     ]
   },
   "Question": {
-    "dataSource": null,
+    "dataSource": "mongodb",
     "public": true
   },
   "P2GUser": {
-    "dataSource": null,
+    "dataSource": "mongodb",
     "public": true
   },
   "Game": {
-    "dataSource": null,
+    "dataSource": "mongodb",
     "public": true
   }
 }
