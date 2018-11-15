@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "Question": {
+    "dataSource": null,
+    "public": true
+  },
+  "P2GUser": {
+    "dataSource": null,
+    "public": true
+  },
+  "Game": {
+    "dataSource": null,
+    "public": true
+  }
+}

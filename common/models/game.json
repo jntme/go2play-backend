@@ -1,0 +1,23 @@
+{
+  "name": "Game",
+  "plural": "games",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user1": {
+      "type": "P2GUser",
+      "required": true
+    },
+    "user2": {
+      "type": "P2GUser",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,53 @@
+{
+  "name": "P2GUser",
+  "plural": "users",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "birthyear": {
+      "type": "string",
+      "required": true
+    },
+    "totalscore": {
+      "type": "number",
+      "required": true
+    },
+    "Games": {
+      "type": [
+        "object"
+      ],
+      "required": true
+    },
+    "mobility": {
+      "type": "number",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "friends": {
+      "type": "string",
+      "required": true
+    },
+    "steps": {
+      "type": "number",
+      "required": true
+    },
+    "walkerCoins": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
