@@ -9,7 +9,8 @@
   "properties": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "id" : true
     },
     "birthyear": {
       "type": "string",
@@ -19,21 +20,11 @@
       "type": "number",
       "required": true
     },
-    "Games": {
-      "type": [
-        "object"
-      ],
-      "required": true
-    },
     "mobility": {
       "type": "number",
       "required": true
     },
     "gender": {
-      "type": "string",
-      "required": true
-    },
-    "friends": {
       "type": "string",
       "required": true
     },
@@ -47,7 +38,17 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+
+    "friends" : {
+      "type":"referencesMany",
+      "model":"P2GUser",
+      "options": {
+        "persistent":true
+      }
+    }
+
+  },
   "acls": [],
   "methods": {}
 }

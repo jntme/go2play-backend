@@ -17,7 +17,21 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+
+    "user1" : {
+      "type" : "belongsTo",
+      "model" : "P2GUser",
+      "foreignKey" : "user1"
+    },
+
+    "user2" : {
+      "type" : "belongsTo",
+      "model" : "P2GUser",
+      "foreignKey" : "user2"
+    }
+
+  },
   "acls": [],
   "methods": {}
 }
