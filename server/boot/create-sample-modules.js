@@ -29,6 +29,15 @@ module.exports = function(app) {
         '4',
       ],
     },
+    {
+      'question': 'Wie viele Ohren hat Jonny?',
+      'answers': [
+        '2',
+        '1',
+        '3',
+        '4',
+      ],
+    },
     ], function(err, questions) {
       if (err) throw err;
 

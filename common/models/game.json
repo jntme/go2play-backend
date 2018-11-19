@@ -29,6 +29,15 @@
       "type" : "belongsTo",
       "model" : "P2GUser",
       "foreignKey" : "user2"
+    },
+
+    "questions" : {
+      "type" : "referencesMany",
+      "model" : "Question",
+      "foreignKey" : "questionlist",
+      "options" : {
+        "persistent":true
+      }
     }
 
   },
