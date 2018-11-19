@@ -43,6 +43,16 @@
     "friends" : {
       "type":"referencesMany",
       "model":"P2GUser",
+      "foreignKey":"friend",
+      "options": {
+        "persistent":true
+      }
+    },
+
+    "games" : {
+      "type":"referencesMany",
+      "model":"Game",
+      "foreignKey":"game",
       "options": {
         "persistent":true
       }
