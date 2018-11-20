@@ -2,8 +2,13 @@
 
 module.exports = function(Question) {
   Question.random = function(cb) {
+    //Question.find({'where': {'id': true}}, function(err, questions) {
+    Question.find({}, function(err, questions) {
 
-    cb(null, "RANDOOOOOOOOOOOOOOOM!");
+      var question = questions[Math.floor(Math.random()*questions.length)];
+
+      cb(null, question);
+    });
   };
 
    Question.remoteMethod(

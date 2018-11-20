@@ -9,32 +9,32 @@
   "properties": {
     "name": {
       "type": "string",
-      "required": true,
+      "required": false,
       "id" : true
     },
     "birthyear": {
       "type": "string",
-      "required": true
+      "required": false  
     },
     "totalscore": {
       "type": "number",
-      "required": true
+      "required": false  
     },
     "mobility": {
       "type": "number",
-      "required": true
+      "required": false 
     },
     "gender": {
       "type": "string",
-      "required": true
+      "required": false 
     },
     "steps": {
       "type": "number",
-      "required": true
+      "required": false
     },
     "walkerCoins": {
       "type": "number",
-      "required": true
+      "required": false
     }
   },
   "validations": [],
