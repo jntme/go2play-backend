@@ -24,5 +24,13 @@
   "Game": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "Round": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "GameQuestion": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

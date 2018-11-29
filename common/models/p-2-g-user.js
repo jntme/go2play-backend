@@ -34,7 +34,7 @@ module.exports = function(P2guser) {
     {
       http: {path: '/addFriend/'},
       accepts: [
-                  {arg: "username", type: "string", riquired:true},
+                  {arg: "username", type: "string", required:true},
                   {arg: 'nFriend', type: 'string', required: true}
                 ],
       returns: {arg: 'ok', type: 'string'}

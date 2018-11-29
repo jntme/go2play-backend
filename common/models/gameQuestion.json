@@ -1,0 +1,39 @@
+{
+    "name": "GameQuestion",
+    "plural": "GameQuestions",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "resUser1": {
+        "type": [
+          "int"
+        ],
+        "required": true
+      },
+      "resUser2": {
+        "type": [
+          "int"
+        ],
+        "required": true
+      }
+    },
+    "validations": [],
+    "relations": {
+        "round" : {
+            "type" : "belongsTo",
+            "model" : "Round",
+            "foreignKey" : "round"
+        },
+        "question" : {
+          "type" : "embedsOne",
+          "model" : "Question",
+          "property" : "question"
+        }
+    },
+    "acls": [],
+    "methods": {}
+  }
+  

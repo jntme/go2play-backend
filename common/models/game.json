@@ -31,13 +31,10 @@
       "foreignKey" : "user2"
     },
 
-    "questions" : {
-      "type" : "referencesMany",
-      "model" : "Question",
-      "foreignKey" : "questionlist",
-      "options" : {
-        "persistent":true
-      }
+    "rounds":{
+      "type":"hasMany",
+      "model":"Round",
+      "foreignKey":"game"
     }
 
   },
