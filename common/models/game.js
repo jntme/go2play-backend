@@ -22,20 +22,10 @@ module.exports = function(Game) {
                 users[1].games.add(game)
                 return game
             }).then(function(game) {
-                console.log("          -----------        ")
-                var randomNums = [];
-                for (let i = 0; i < 4; i++) {
-                    var randomNum = Math.floor(Math.random()*questions.length)
-                    if(randomNums.includes(randomNum)){
-                        i--
-                        console.log(randomNum)
-                    } else {
-                        randomNums.push(randomNum)
-                        var question = questions[randomNum]
-                        game.questions.add(question)
-                    }
-                }
-                return cb(null, game.id)
+                
+                game.rounds.create({"finished":"false"})
+                
+               return cb(null, game.id)
             })
             
         })
@@ -46,7 +36,7 @@ module.exports = function(Game) {
         {
           http: {path: '/new/'},
           accepts: [
-                      {arg: "username", type: "string", riquired:true},
+                      {arg: "username", type: "string", required:true},
                       {arg: 'friend', type: 'string', required: true}
                     ],
           returns: {arg: 'id', type: 'string'}
