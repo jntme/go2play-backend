@@ -14,6 +14,12 @@
     "user2": {
       "type": "P2GUser",
       "required": true
+    },
+    "rounds": {
+      "type": [
+        "Object"
+      ],
+      "required": false
     }
   },
   "validations": [],
@@ -29,14 +35,7 @@
       "type" : "belongsTo",
       "model" : "P2GUser",
       "foreignKey" : "user2"
-    },
-
-    "rounds":{
-      "type":"hasMany",
-      "model":"Round",
-      "foreignKey":"game"
     }
-
   },
   "acls": [],
   "methods": {}
