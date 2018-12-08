@@ -1,0 +1,203 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-12-08T15:24:55.193Z",
+	"__export_source": "insomnia.desktop.app:v6.2.3",
+	"resources": [
+		{
+			"_id": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"created": 1544091155907,
+			"description": "",
+			"modified": 1544091155907,
+			"name": "go2play",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_d5c1ca141bbd40f99912feb4b0f93f0d",
+			"color": null,
+			"created": 1544091156105,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1544091156105,
+			"modified": 1544091156105,
+			"name": "New Environment",
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_a18fb53100c24062b882285c6ef3d8cd",
+			"cookies": [],
+			"created": 1544091156109,
+			"modified": 1544091156109,
+			"name": "Default Jar",
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_b240ce4d43ef4926bf0f10b693943218",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"name\": \"gfels\",\n  \"birthyear\": \"string\",\n  \"totalscore\": 0,\n  \"mobility\": 0,\n  \"gender\": \"string\",\n  \"steps\": 0,\n  \"walkerCoins\": 0\n}"
+			},
+			"created": 1544091179548,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_3124b7f92659406a967f00c46fa46880",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544091179548,
+			"method": "POST",
+			"modified": 1544280500240,
+			"name": "push User gfels",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_5516d85f53304c5b9359d16ca05d47de",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"name\": \"jntme\",\n  \"birthyear\": \"string\",\n  \"totalscore\": 0,\n  \"mobility\": 0,\n  \"gender\": \"string\",\n  \"steps\": 0,\n  \"walkerCoins\": 0\n}"
+			},
+			"created": 1544091184145,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_3235d73ebf8746ac84d88abda7f0ec48",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544091184145,
+			"method": "POST",
+			"modified": 1544280502553,
+			"name": "push User jntme",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_20bfd7bc6f6e40c9b344124b03c2ef54",
+			"authentication": {},
+			"body": {},
+			"created": 1544091319157,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1544091319157,
+			"method": "GET",
+			"modified": 1544281372384,
+			"name": "all users",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_4c5bf2c2448d493d8bfb7db8a1dac5e3",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"username\": \"gfels\",\n  \"friend\": \"jntme\"\n}"
+			},
+			"created": 1544091342491,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_eca05b51cd68416a8e48d2ca630a3462",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544091342491,
+			"method": "POST",
+			"modified": 1544281643199,
+			"name": "create game for jntme/gfels",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/games/new",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1872f683e49643b7a18e174ce6db69d2",
+			"authentication": {},
+			"body": {},
+			"created": 1544091589934,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1544091589934,
+			"method": "GET",
+			"modified": 1544281646059,
+			"name": "all games",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/games",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c6e7288bdf174ad792f0d10fe243f151",
+			"authentication": {},
+			"body": {},
+			"created": 1544092574531,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1544092574532,
+			"method": "GET",
+			"modified": 1544282638356,
+			"name": "specific game",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/games/5c0bde278e28ce1246f9c8a1",
+			"_type": "request"
+		}
+	]
+}
