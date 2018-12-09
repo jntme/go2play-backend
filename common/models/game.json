@@ -8,11 +8,11 @@
   },
   "properties": {
     "user1": {
-      "type": "P2GUser",
+      "type": "String",
       "required": true
     },
     "user2": {
-      "type": "P2GUser",
+      "type": "String",
       "required": true
     },
     "activeRound": {
@@ -33,22 +33,15 @@
         "Object"
       ],
       "required": false
+    },
+    "canceled" : {
+      "type" : "Boolean",
+      "default" : false
     }
   },
   "validations": [],
   "relations": {
 
-    "user1" : {
-      "type" : "belongsTo",
-      "model" : "P2GUser",
-      "foreignKey" : "user1"
-    },
-
-    "user2" : {
-      "type" : "belongsTo",
-      "model" : "P2GUser",
-      "foreignKey" : "user2"
-    }
   },
   "acls": [],
   "methods": {}
