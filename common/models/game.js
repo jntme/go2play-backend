@@ -36,8 +36,7 @@ module.exports = function (Game) {
 
       //pushes all rounds to the game
       Promise.all(roundPromises).then(rounds => {
-        game.rounds = [];
-        game.rounds.push(rounds);
+        game.rounds = rounds;
         return game;
       }).then(game => {
         game.save().then(function (game) {
@@ -105,7 +104,34 @@ module.exports = function (Game) {
       returns: {arg: 'id', type: 'string'}
     }
   )
+
+  //Checks if a user has to play or wait for the other user
+  //Returns the active round if the user has to play
+  Game.round = function (id, username, cb) {
+    Game.findOne({where: {"id":id}}).then(function(game){
+      if(game.activeUser !=username){
+        return cb(null, {"waiting":"waiting for other player"});
+      } else {
+        return cb(null, game.rounds[game.activeRound-1]);
+      }
+    })
+  };
+  
+  Game.remoteMethod(
+    'round',
+    {
+      http: {path: '/:id/round'},
+      accepts: [
+        {arg: "id", type: "string", required: true},
+        {arg: "username", type: "string", required: true}
+      ],
+      returns: {arg: 'body', type: 'string', root: true}
+    }
+  )
+
 }
+
+
 
 
 /**
