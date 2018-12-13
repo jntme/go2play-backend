@@ -116,7 +116,7 @@ module.exports = function (Game) {
       }
     })
   };
-  
+
   Game.remoteMethod(
     'round',
     {
@@ -137,18 +137,18 @@ module.exports = function (Game) {
       if(roundNr!=game.activeRound || username!=game.activeUser){
         return cb(null,{"error":"Wrong user or round"})
       }
-      //checks if there are only three answers 
+      //checks if there are only three answers
       else if (answers.length>3){
         return cb(null,{"error":"To many answers"})
       } else if (answers.length<3){
         return cb(null,{"error":"Not enough answers"})
-      } 
+      }
       //Saves the answers into the game object
       else {
         const questionCount=game.rounds[roundNr-1].gameQuestions.length;
 
         //Writes the ansers of a user itno each corresponding game question
-        //The answer is saved in a property which is the username itself        
+        //The answer is saved in a property which is the username itself
         for (let i = 0; i < questionCount; i++) {
           const answer = answers[i];
           game.rounds[roundNr-1].gameQuestions[i][username] = answer
