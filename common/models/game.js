@@ -13,7 +13,6 @@ module.exports = function (Game) {
     let Question = app.models.Question;
 
     // get the two associated users
-    // todo: catch if one of the user is not found and return an error which makes sense
     var promUser1 = P2guser.findOne({where: {'name': username}});
     var promUser2 = P2guser.findOne({where: {'name': friend}});
     var promQuestion = Question.find();
@@ -21,8 +20,20 @@ module.exports = function (Game) {
     Promise.all([promUser1, promUser2]).then(function (users) {
       const game = new app.models.Game();
 
-      game.user1=users[0].id;
-      game.user2=users[1].id;
+      if (!users[0]) {
+        var error = new Error("User not found.");
+        error.statusCode = 404;
+        return cb(error);
+      }
+
+      if (!users[1]) {
+        var error = new Error("Friend not found.");
+        error.statusCode = 404;
+        return cb(error);
+      }
+
+      game.user1 = users[0].id;
+      game.user2 = users[1].id;
       game.questionHashMap = [];
 
       //the selected friend should play first
@@ -108,11 +119,11 @@ module.exports = function (Game) {
   //Checks if a user has to play or wait for the other user
   //Returns the active round if the user has to play
   Game.round = function (id, username, cb) {
-    Game.findOne({where: {"id":id}}).then(function(game){
-      if(game.activeUser !=username){
-        return cb(null, {"waiting":"waiting for other player"});
+    Game.findOne({where: {"id": id}}).then(function (game) {
+      if (game.activeUser != username) {
+        return cb(null, {"waiting": "waiting for other player"});
       } else {
-        return cb(null, game.rounds[game.activeRound-1]);
+        return cb(null, game.rounds[game.activeRound - 1]);
       }
     })
   };
@@ -130,55 +141,76 @@ module.exports = function (Game) {
   )
 
   //Checks and saves the answer of a user and continues to the next user or round
-  Game.answer = function(id, username, roundNr, answers, cb) {
+  Game.answer = function (id, username, roundNr, answers, cb) {
     //gets the game object from the db
-    Game.findOne({where: {"id":id}}).then(function(game){
-      //checks if the questions are form the correct round and if the correct user is playing
-      if(roundNr!=game.activeRound || username!=game.activeUser){
-        return cb(null,{"error":"Wrong user or round"})
-      }
-      //checks if there are only three answers
-      else if (answers.length>3){
-        return cb(null,{"error":"To many answers"})
-      } else if (answers.length<3){
-        return cb(null,{"error":"Not enough answers"})
-      }
-      //Saves the answers into the game object
-      else {
-        const questionCount=game.rounds[roundNr-1].gameQuestions.length;
-
-        //Writes the ansers of a user itno each corresponding game question
-        //The answer is saved in a property which is the username itself
-        for (let i = 0; i < questionCount; i++) {
-          const answer = answers[i];
-          game.rounds[roundNr-1].gameQuestions[i][username] = answer
+    Game.findOne({where: {"id": id}})
+      .then(function (game) {
+        if (!game) {
+          var error = new Error("Game not found.");
+          error.statusCode = 404;
+          return cb(error);
         }
 
-        //Calls a method which manipulates the activeUser or activeRound properties
-        //depending on the current state of the game
-        const isUser1 = username==game.user1;
-        game = nextRound(game, isUser1);
+        //checks if the questions are form the correct round and if the correct user is playing
+        if (roundNr != game.activeRound || username != game.activeUser) {
+          return cb(null, {"error": "Wrong user or round"})
+        }
+        //checks if there are only three answers
+        else if (answers.length > 3) {
+          return cb(null, {"error": "To many answers"})
+        } else if (answers.length < 3) {
+          return cb(null, {"error": "Not enough answers"})
+        }
+        //Saves the answers into the game object
+        else {
+          const questionCount = game.rounds[roundNr - 1].gameQuestions.length;
 
-        game.save();
-        return cb(null, {"ok":"true"})
-      }
-    })
+          //Writes the answers of a user itno each corresponding game question
+          //The answer is saved in a property which is the username itself
+          for (let i = 0; i < questionCount; i++) {
+            const answer = answers[i];
+            game.rounds[roundNr - 1].gameQuestions[i][username] = answer
+          }
 
-  }
+          //Calls a method which manipulates the activeUser or activeRound properties
+          //depending on the current state of the game
+          const isUser1 = username == game.user1;
+          game = nextRound(game, isUser1);
 
-  let nextRound = function(game, isUser1) {
+          game.save();
+          return cb(null, {"ok": "true"})
+        }
+      })
+  };
+
+  let nextRound = function (game, isUser1) {
+    // todo this function is not understandable for a moderately intelligent human being
     //checks four different cases in which a game can be in and manipulates the object accordingly
-    if(!isUser1 && !(game.activeRound % 2) == 0){
-      game.activeUser=game.user1;
-    } else if (isUser1 && !(game.activeRound % 2) == 0){
+
+    if (!isUser1 && !(game.activeRound % 2) == 0) {
+      game.activeUser = game.user1;
+    } else if (isUser1 && !(game.activeRound % 2) == 0) {
+      console.log('max rounds:' + game.rounds[game.rounds.length-1].roundNumber);
+      console.log('actual round:' + game.activeRound);
       game.activeRound += 1;
-    } else if(isUser1 && (game.activeRound % 2) == 0){
-      game.activeUser=game.user2;
-    } else if (!isUser1 && (game.activeRound % 2) == 0){
+    } else if (isUser1 && (game.activeRound % 2) == 0) {
+      game.activeUser = game.user2;
+    } else if (!isUser1 && (game.activeRound % 2) == 0) {
+      console.log('max rounds:' + game.rounds[game.rounds.length-1].roundNumber);
+      console.log('actual round:' + game.activeRound);
       game.activeRound += 1;
+
     }
     return game;
   }
+
+  // todo add that game is finished, after the last round is being played
+  // if(game.rounds[game.rounds.length-1].roundNumber > game.activeRound)  {
+  //   game.activeRound += 1;
+  // }
+  // else {
+  //   game.activeRound = "game finished."
+  // }
 
   Game.remoteMethod(
     'answer',
@@ -195,8 +227,6 @@ module.exports = function (Game) {
   )
 
 }
-
-
 
 
 /**
