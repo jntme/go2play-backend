@@ -10,23 +10,23 @@
     "name": {
       "type": "string",
       "required": false,
-      "id" : true
+      "id": true
     },
     "birthyear": {
       "type": "string",
-      "required": false  
+      "required": false
     },
     "totalscore": {
       "type": "number",
-      "required": false  
+      "required": false
     },
     "mobility": {
       "type": "number",
-      "required": false 
+      "required": false
     },
     "gender": {
       "type": "string",
-      "required": false 
+      "required": false
     },
     "steps": {
       "type": "number",
@@ -35,29 +35,32 @@
     "walkerCoins": {
       "type": "number",
       "required": false
+    },
+    "matches": {
+      "type": [
+        "Object"
+      ],
+      "required": false
     }
   },
   "validations": [],
   "relations": {
-
-    "friends" : {
-      "type":"referencesMany",
-      "model":"P2GUser",
-      "foreignKey":"friend",
+    "friends": {
+      "type": "referencesMany",
+      "model": "P2GUser",
+      "foreignKey": "friend",
       "options": {
-        "persistent":true
+        "persistent": true
       }
     },
-
-    "games" : {
-      "type":"referencesMany",
-      "model":"Game",
-      "foreignKey":"game",
+    "games": {
+      "type": "referencesMany",
+      "model": "Game",
+      "foreignKey": "game",
       "options": {
-        "persistent":true
+        "persistent": true
       }
     }
-
   },
   "acls": [],
   "methods": {}

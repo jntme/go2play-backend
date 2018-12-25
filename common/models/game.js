@@ -2,6 +2,7 @@
 
 const GameQuestion = require('../helper_models/gameQuestion');
 const Round = require('../helper_models/round');
+const Match = require('../helper_models/match');
 const crypto = require('crypto');
 
 module.exports = function (Game) {
@@ -227,7 +228,7 @@ module.exports = function (Game) {
     return game;
   }
 
-  //calculates the winner of the game and updates that users totalscore
+  //calculates the winner of the game, and updates game and users accordingly
   let gameFinished = function (game) {
     let app = Game.app;
     let P2guser = app.models.P2GUser;
@@ -242,31 +243,40 @@ module.exports = function (Game) {
       });
     });
 
-    console.log('scorePlayer1:', scorePlayer1);
-    console.log('scorePlayer2:', scorePlayer2);
-
-    let winningUsers = [];
-
-    if (scorePlayer1 > scorePlayer2 || scorePlayer1 == scorePlayer2) {
-      winningUsers.push(P2guser.findOne({where: {'name': game.user1}}));
+    //set winner on game
+    if (scorePlayer1 > scorePlayer2) {
       game.winner = game.user1;
-      console.log("added user1 to winners");
     }
-    if (scorePlayer2 > scorePlayer1 || scorePlayer1 == scorePlayer2) {
-      winningUsers.push(P2guser.findOne({where: {'name': game.user2}}));
+    else if (scorePlayer2 > scorePlayer1) {
       game.winner = game.user2;
-      console.log("added user2 to winners");
+    } else { // drawn
+      game.winner = "both";
     }
 
-    // if both won, overwrite with 'both'
-    if(winningUsers.length == 2) game.winner = "both";
+    let users = [];
+    users.push(P2guser.findOne({where: {'name': game.user1}}));
+    users.push(P2guser.findOne({where: {'name': game.user2}}));
 
-    Promise.all(winningUsers).then(users => {
+    Promise.all(users).then(users => {
       users.forEach(user => {
-        console.log('found fucking user:', user);
-        console.log("updated the total score for user " + user.name);
+        if (game.winner === user.name || game.winner === 'both') {
+          user.totalscore++;
+        }
 
-        user.totalscore++;
+        let opponent = user.name === game.user1 ? game.user2 : game.user1;
+        let result;
+
+        //find out if the user is the winner or not
+        if (game.winner === user.name) result = 1; // won
+        else if (game.winner === "both") result = 0; // drawn
+        else result = 2; // lost
+
+
+        let match = new Match(opponent, result);
+
+        if (!user.matches) user.matches = [];
+
+        user.matches.push(match);
         user.save();
       });
     });
@@ -293,8 +303,5 @@ module.exports = function (Game) {
 
 /**
  * TODO:
- * - game neu erstellen (mit 3 rounds, schon befüllt mit gameQuestions) - jntme (done)
- * - abfragen, wer dass dran ist -> user, der dran ist & rounds - jntme
- * - gameQuestion beantworten -> richtig oder falsch - kybup
  * - cancel game - kybup
  */
