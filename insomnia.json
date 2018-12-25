@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2018-12-13T10:13:04.909Z",
+	"__export_date": "2018-12-25T14:10:38.929Z",
 	"__export_source": "insomnia.desktop.app:v6.2.3",
 	"resources": [
 		{
@@ -20,7 +20,7 @@
 			"data": {},
 			"isPrivate": false,
 			"metaSortKey": 1544091156105,
-			"modified": 1544091156105,
+			"modified": 1545734422393,
 			"name": "New Environment",
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
 			"_type": "environment"
@@ -53,7 +53,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1544091179548,
 			"method": "POST",
-			"modified": 1544695435527,
+			"modified": 1545746519428,
 			"name": "push User gfels",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
@@ -63,7 +63,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/users",
+			"url": "http://{{ hostAndPort  }}/api/users",
 			"_type": "request"
 		},
 		{
@@ -85,7 +85,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1544091184145,
 			"method": "POST",
-			"modified": 1544695389451,
+			"modified": 1545746521173,
 			"name": "push User jntme",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
@@ -95,7 +95,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/users",
+			"url": "http://{{ hostAndPort  }}/api/users",
 			"_type": "request"
 		},
 		{
@@ -108,7 +108,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1544091319157,
 			"method": "GET",
-			"modified": 1544695390580,
+			"modified": 1545746587251,
 			"name": "all users",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
@@ -118,7 +118,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/users",
+			"url": "http://{{ hostAndPort  }}/api/users",
 			"_type": "request"
 		},
 		{
@@ -140,7 +140,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1544091342491,
 			"method": "POST",
-			"modified": 1544695394715,
+			"modified": 1545746571899,
 			"name": "create game for jntme/gfels",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
@@ -150,7 +150,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/games/new",
+			"url": "http://{{ hostAndPort  }}/api/games/new",
 			"_type": "request"
 		},
 		{
@@ -163,7 +163,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1544091589934,
 			"method": "GET",
-			"modified": 1544695396846,
+			"modified": 1545746558130,
 			"name": "all games",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
@@ -173,7 +173,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/games",
+			"url": "http://{{ hostAndPort  }}/api/games",
 			"_type": "request"
 		},
 		{
@@ -186,7 +186,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1544092574532,
 			"method": "GET",
-			"modified": 1544695950551,
+			"modified": 1545746243941,
 			"name": "specific game",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
@@ -196,7 +196,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/games/5c122e5f06acb16e9a622421",
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}",
 			"_type": "request"
 		},
 		{
@@ -218,7 +218,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1544694460082,
 			"method": "POST",
-			"modified": 1544695946624,
+			"modified": 1545746534092,
 			"name": "get actual round and if its your turn (not valid)",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
@@ -228,7 +228,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/games/5c122e5f06acb16e9a622421/round",
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}/round",
 			"_type": "request"
 		},
 		{
@@ -250,7 +250,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1544393517307,
 			"method": "POST",
-			"modified": 1544695949868,
+			"modified": 1545746533636,
 			"name": "get actual round and if its your turn (valid)",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
@@ -260,7 +260,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/games/5c122e5f06acb16e9a622421/round",
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}/round",
 			"_type": "request"
 		},
 		{
@@ -268,7 +268,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"username\": \"gfels\",\n\t\"roundNr\": 1,\n\t\"answers\": [3,2,1]\n}\n"
+				"text": "{\n\t\"username\": \"jntme\",\n\t\"roundNr\": 3,\n\t\"answers\": [3,2,1]\n}\n"
 			},
 			"created": 1544694727993,
 			"description": "",
@@ -282,8 +282,8 @@
 			"isPrivate": false,
 			"metaSortKey": -1544694460132,
 			"method": "POST",
-			"modified": 1544695944611,
-			"name": "answer round on game",
+			"modified": 1545746581790,
+			"name": "answer round on game #5",
 			"parameters": [],
 			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
 			"settingDisableRenderRequestBody": false,
@@ -292,8 +292,253 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/games/5c122e5f06acb16e9a622421/answer",
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}/answer",
 			"_type": "request"
+		},
+		{
+			"_id": "req_f6038c0852814d6995d1a8249e1120d5",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"jntme\",\n\t\"roundNr\": 1,\n\t\"answers\": [3,2,1]\n}\n"
+			},
+			"created": 1545654970887,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b1fb211e2d444ab3bcd3440f0c370e03",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544694460107,
+			"method": "POST",
+			"modified": 1545746573378,
+			"name": "answer round on game #1",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}/answer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_05acca3330f94516bed0dcd4238e87b2",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"gfels\",\n\t\"roundNr\": 1,\n\t\"answers\": [3,2,1]\n}\n"
+			},
+			"created": 1545654972559,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b1fb211e2d444ab3bcd3440f0c370e03",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544694460119.5,
+			"method": "POST",
+			"modified": 1545746575571,
+			"name": "answer round on game #2",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}/answer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1514afd48813491dba530772098978e7",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"jntme\",\n\t\"roundNr\": 2,\n\t\"answers\": [3,2,1]\n}\n"
+			},
+			"created": 1545654973324,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b1fb211e2d444ab3bcd3440f0c370e03",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544694460125.75,
+			"method": "POST",
+			"modified": 1545746580424,
+			"name": "answer round on game #4",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}/answer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_70a505f6109c495aae20bc6d068cb01b",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"gfels\",\n\t\"roundNr\": 2,\n\t\"answers\": [1,2,1]\n}\n"
+			},
+			"created": 1545654974268,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b1fb211e2d444ab3bcd3440f0c370e03",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544694460122.625,
+			"method": "POST",
+			"modified": 1545746579084,
+			"name": "answer round on game #3",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}/answer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e6246f8763404a43947a863117441105",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"gfels\",\n\t\"roundNr\": 3,\n\t\"answers\": [3,2,1]\n}\n"
+			},
+			"created": 1545657309299,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b1fb211e2d444ab3bcd3440f0c370e03",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544694460182,
+			"method": "POST",
+			"modified": 1545747013260,
+			"name": "answer round on game #6",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://{{ hostAndPort  }}/api/games/{{ gameid  }}/answer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d293617e44574ec1a20764d1b6ad86fb",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"gfels\",\n\t\"roundNr\": 4,\n\t\"answers\": [3,2,1]\n}\n"
+			},
+			"created": 1545658646645,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b1fb211e2d444ab3bcd3440f0c370e03",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1544694460232,
+			"method": "POST",
+			"modified": 1545746030515,
+			"name": "answer round on game #7 (error)",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://{{ hostAndPort  }}/api/games/5c21fdfa7992a4c5c3f42793/answer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e9dfa1abc65443f9adf767f1b7e3c821",
+			"authentication": {},
+			"body": {},
+			"created": 1545745723327,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1544091330824,
+			"method": "GET",
+			"modified": 1545746941540,
+			"name": "specific user",
+			"parameters": [],
+			"parentId": "wrk_1903ed7ab69940aeae2107f0ee78943f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://{{ hostAndPort  }}/api/users/gfels",
+			"_type": "request"
+		},
+		{
+			"_id": "env_77ddfaec18ff4c2186e21e31f497f15b",
+			"color": "#11cbc7",
+			"created": 1545734348205,
+			"data": {
+				"gameid": "5c223882ca8237091ef08e76",
+				"hostAndPort": "localhost:3000"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1545734348205,
+			"modified": 1545746571571,
+			"name": "localhost",
+			"parentId": "env_d5c1ca141bbd40f99912feb4b0f93f0d",
+			"_type": "environment"
+		},
+		{
+			"_id": "env_02e48cda9f57488b9c976f4adf4b9c49",
+			"color": "#cbb600",
+			"created": 1545746040286,
+			"data": {
+				"gameid": "5c2234f4ac751604b1c30cd0",
+				"hostAndPort": "wsdeb2.i4mi.bfh.ch:8080"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1545746040286,
+			"modified": 1545746117903,
+			"name": "BFH Server",
+			"parentId": "env_d5c1ca141bbd40f99912feb4b0f93f0d",
+			"_type": "environment"
 		}
 	]
 }
