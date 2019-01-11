@@ -5,20 +5,16 @@ class Match {
   constructor(opponent, result) {
     this.opponent = opponent;
     this.endOfGame = Date.now();
-    console.log('result:' + result);
 
     switch (result) {
       case 1:
-        console.log('won')
         this.result = "won";
         break;
       case 2:
         this.result = "lost";
-        console.log('lost')
         break;
       case 0:
         this.result = "drawn";
-        console.log('drawn')
         break;
     }
   }
